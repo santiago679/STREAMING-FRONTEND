@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <script src="https://kit.fontawesome.com/4f3ce16e3e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="dashboard-header">
+    <span id="userInfo"></span>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <h2>Panel</h2>
+      <ul id="sidebarMenu">
+        <li data-section="home"><i class="fas fa-home"></i> Inicio</li>
+        <li data-section="stats" class="admin-only"><i class="fas fa-chart-bar"></i> Estadísticas generales</li>
+        <li data-section="services"><i class="fas fa-tools"></i> Servicios</li>
+        <li data-section="accounts" class="admin-only seller-only"><i class="fas fa-user-lock"></i> Cuentas</li>
+        <li data-section="sales" class="admin-only"><i class="fas fa-cash-register"></i> Ventas</li>
+        <li data-section="newSale" class="admin-only seller-only"><i class="fas fa-plus"></i> Venta nueva</li>
+        <li data-section="clients" class="admin-only seller-only"><i class="fas fa-users"></i> Clientes</li>
+        <li data-section="profile"><i class="fas fa-user"></i> Mi perfil</li>
+      </ul>
+      <button id="goHomeBtn"><i class="fas fa-arrow-left"></i> Volver al inicio</button>
+      <button id="logoutBtn" class="logout-btn">Cerrar sesión</button>
+    </aside>
+
+    <main class="content">
+      <section id="home" class="dashboard-section active">
+        <h2>🏠 Bienvenido al panel</h2>
+        <p>Selecciona una opción del menú para comenzar.</p>
+      </section>
+
+      <section id="stats" class="dashboard-section">
+        <h2>📊 Estadísticas generales</h2>
+        <p>Contenido para ADMIN o roles con acceso.</p>
+      </section>
+
+      <section id="services" class="dashboard-section">
+        <h2>🛠️ Servicios</h2>
+        <button id="create-service-btn">Nuevo servicio</button>
+
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Link</th>
+              <th>Máx. usuarios</th>
+              <th>Precio</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="services-table-body">
+            <!-- Aquí se llenarán dinámicamente los servicios -->
+          </tbody>
+        </table>
+
+        <!-- Modal del formulario -->
+        <div id="service-modal" class="modal hidden">
+          <div class="modal-content">
+            <h3 id="form-title">Nuevo servicio</h3>
+            <form id="service-form">
+              <input type="text" name="name" placeholder="Nombre del servicio" required>
+              <input type="text" name="description" placeholder="Descripción" required>
+              <input type="url" name="link" placeholder="Link" required>
+              <input type="number" name="maxUsers" placeholder="Máx. usuarios" required>
+              <input type="number" name="price" placeholder="Precio" required>
+              <div class="form-actions">
+                <button type="submit" class="submit-btn">Guardar</button>
+                <button type="button" id="cancel-service-btn" class="cancel-btn">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+        
+      <section id="accounts" class="dashboard-section">
+
+  <h2>🔐 Cuentas</h2>
+  <button id="create-account-btn" class="new-btn">Nueva cuenta</button>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Email</th>
+        <th>Contraseña</th>
+        <th>Vendida a</th>
+        <th>Plataforma</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="accounts-table-body">
+      <!-- Filas dinámicas -->
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div id="account-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="account-form-title">Nueva cuenta</h3>
+      <form id="account-form">
+        <input type="email" name="email" placeholder="Correo" required>
+        <input type="text" name="password" placeholder="Contraseña" required>
+        <select name="entity" id="entity-select" required>
+          <option value="">Selecciona una entidad</option>
+        </select>
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">Guardar</button>
+          <button type="button" id="cancel-account-btn" class="cancel-btn">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+      <section id="sales" class="dashboard-section">
+        <h2>🧾 Ventas</h2>
+        <p>Listado de ventas realizadas.</p>
+      </section>
+
+      <section id="newSale" class="dashboard-section">
+        <h2>➕ Venta nueva</h2>
+        <p>Registrar una nueva venta.</p>
+      </section>
+
+      <section id="clients" class="dashboard-section">
+        <h2>👥 Clientes</h2>
+        <p>Listado de clientes disponibles.</p>
+      </section>
+
+      <section id="profile" class="dashboard-section">
+        <h2>👤 Mi perfil</h2>
+        <p>Gestión del perfil de usuario.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="./js/dashboard.js"></script>
+  <script src="./js/services.js"></script>
+  <script src="./js/accounts.js"></script>
+
+</body>
+</html>

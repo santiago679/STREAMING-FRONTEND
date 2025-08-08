@@ -1,0 +1,108 @@
+/* Header estilo dashboard */
+.header {
+  background-color: #1f2a44;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Fondo general */
+body {
+  background-color: #e5e7eb;
+}
+
+/* Tarjeta centrada */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 4rem auto;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #475569;
+  margin-bottom: 2rem;
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  min-width: 150px;
+  text-align: center;
+}
+
+.btn.primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #2563eb;
+}
+
+.btn.secondary {
+  background-color: #1f2937;
+  color: white;
+}
+
+.btn.secondary:hover {
+  background-color: #111827;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card {
+    margin: 2rem 1rem;
+  }
+}
+
+/* Navbar común */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f2a44;
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-left .logo {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.navbar-left .logo:hover {
+  text-decoration: underline;
+}
+
+.navbar-center .app-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
