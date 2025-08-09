@@ -255,3 +255,209 @@ button {
     transform: translateY(0);
   }
 }
+/* ===========================
+   STYLES - Sección "Mi perfil"
+   =========================== */
+
+/* Mantener la misma apariencia que #accounts / #services */
+#profile {
+  padding: 2rem;
+  background-color: #f5faff;
+  border-radius: 10px;
+  box-shadow: 0 1px 0 rgba(16,24,40,0.02);
+}
+
+/* Contenedor centrado y ancho máximo */
+.profile-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Ficha de información (fila estilo tarjeta) */
+.perfil-info {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(2,6,23,0.04);
+  margin-bottom: 1.25rem;
+}
+
+.perfil-info p {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid #eef2f7;
+  color: #334155;
+}
+
+.perfil-info p:last-child {
+  border-bottom: none;
+}
+
+.perfil-info strong {
+  color: #0f172a;
+}
+
+/* Formulario */
+.profile-form,
+.perfil-form,
+#perfilForm {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 6px rgba(2,6,23,0.04);
+}
+
+.form-group {
+  margin-bottom: 0.85rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.profile-form input,
+.perfil-form input,
+.profile-container input,
+.profile-container select,
+.profile-container textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+  color: #0f172a;
+}
+
+/* Acciones / botones del formulario (alineadas a la derecha) */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.6rem;
+}
+
+/* Botones coherentes con tus otros estilos */
+.btn-save,
+.submit-btn {
+  background-color: #00cc66;
+  color: #fff;
+  border: none;
+  padding: 0.55rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.18s ease;
+}
+
+.btn-save:hover,
+.submit-btn:hover {
+  background-color: #00994d;
+}
+
+/* Botón secundario (ej. Cambiar contraseña) */
+.secondary-btn,
+.btn-secondary {
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.secondary-btn:hover,
+.btn-secondary:hover {
+  background-color: #005fa3;
+}
+
+/* Botones de cancelar / peligro */
+.cancel-btn,
+.btn-cancel {
+  background-color: #e53e3e;
+  color: #fff;
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel-btn:hover,
+.btn-cancel:hover {
+  background-color: #c53030;
+}
+
+.danger-btn,
+.btn-delete,
+.btn-eliminar {
+  background-color: #e53e3e;
+  color: #fff;
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.danger-btn.hidden,
+.btn-delete.hidden,
+.hidden {
+  display: none !important;
+}
+
+/* Modal: usa los estilos compartidos (.modal, .modal-content) que ya tienes,
+   pero añadimos un ajuste para formularios dentro del modal */
+.modal-content form input {
+  margin-bottom: 0.6rem;
+}
+
+/* Ajustes de tabla si en algún HTML usas tabla para perfil */
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(2,6,23,0.04);
+}
+
+.profile-table th,
+.profile-table td {
+  padding: 0.95rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.profile-table th {
+  background: #f1f5f9;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .profile-container {
+    padding: 0 12px;
+  }
+
+  .perfil-info p {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .btn-save,
+  .secondary-btn,
+  .danger-btn {
+    width: 100%;
+  }
+}
