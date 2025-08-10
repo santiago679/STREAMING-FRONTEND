@@ -30,20 +30,22 @@
     </aside>
 
     <main class="content">
+      <!-- HOME -->
       <section id="home" class="dashboard-section active">
         <h2>🏠 Bienvenido al panel</h2>
         <p>Selecciona una opción del menú para comenzar.</p>
       </section>
 
+      <!-- ESTADÍSTICAS -->
       <section id="stats" class="dashboard-section">
         <h2>📊 Estadísticas generales</h2>
         <p>Contenido para ADMIN o roles con acceso.</p>
       </section>
 
+      <!-- SERVICIOS -->
       <section id="services" class="dashboard-section">
         <h2>🛠️ Servicios</h2>
         <button id="create-service-btn">Nuevo servicio</button>
-
         <table>
           <thead>
             <tr>
@@ -56,12 +58,8 @@
               <th>Acciones</th>
             </tr>
           </thead>
-          <tbody id="services-table-body">
-            <!-- Aquí se llenarán dinámicamente los servicios -->
-          </tbody>
+          <tbody id="services-table-body"></tbody>
         </table>
-
-        <!-- Modal del formulario -->
         <div id="service-modal" class="modal hidden">
           <div class="modal-content">
             <h3 id="form-title">Nuevo servicio</h3>
@@ -79,76 +77,191 @@
           </div>
         </div>
       </section>
-        
+
+      <!-- CUENTAS -->
       <section id="accounts" class="dashboard-section">
-
-  <h2>🔐 Cuentas</h2>
-  <button id="create-account-btn" class="new-btn">Nueva cuenta</button>
-
-  <table class="styled-table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Email</th>
-        <th>Contraseña</th>
-        <th>Vendida a</th>
-        <th>Plataforma</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody id="accounts-table-body">
-      <!-- Filas dinámicas -->
-    </tbody>
-  </table>
-
-  <!-- Modal -->
-  <div id="account-modal" class="modal hidden">
-    <div class="modal-content">
-      <h3 id="account-form-title">Nueva cuenta</h3>
-      <form id="account-form">
-        <input type="email" name="email" placeholder="Correo" required>
-        <input type="text" name="password" placeholder="Contraseña" required>
-        <select name="entity" id="entity-select" required>
-          <option value="">Selecciona una entidad</option>
-        </select>
-        <div class="form-actions">
-          <button type="submit" class="submit-btn">Guardar</button>
-          <button type="button" id="cancel-account-btn" class="cancel-btn">Cancelar</button>
+        <h2>🔐 Cuentas</h2>
+        <button id="create-account-btn" class="new-btn">Nueva cuenta</button>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Email</th>
+              <th>Contraseña</th>
+              <th>Vendida a</th>
+              <th>Plataforma</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="accounts-table-body"></tbody>
+        </table>
+        <div id="account-modal" class="modal hidden">
+          <div class="modal-content">
+            <h3 id="account-form-title">Nueva cuenta</h3>
+            <form id="account-form">
+              <input type="email" name="email" placeholder="Correo" required>
+              <input type="text" name="password" placeholder="Contraseña" required>
+              <select name="entity" id="entity-select" required>
+                <option value="">Selecciona una entidad</option>
+              </select>
+              <div class="form-actions">
+                <button type="submit" class="submit-btn">Guardar</button>
+                <button type="button" id="cancel-account-btn" class="cancel-btn">Cancelar</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </form>
-    </div>
-  </div>
-</section>
+      </section>
 
-
-
+      <!-- VENTAS -->
       <section id="sales" class="dashboard-section">
         <h2>🧾 Ventas</h2>
         <p>Listado de ventas realizadas.</p>
       </section>
 
+      <!-- VENTA NUEVA -->
       <section id="newSale" class="dashboard-section">
         <h2>➕ Venta nueva</h2>
         <p>Registrar una nueva venta.</p>
       </section>
 
+      <!-- CLIENTES (tu sección ya existente; se usa con clients.js) -->
       <section id="clients" class="dashboard-section">
-        <h2>👥 Clientes</h2>
-        <p>Listado de clientes disponibles.</p>
+        <div class="container mt-4">
+          <h2>Gestión de Clientes</h2>
+          <button id="addClientBtn" class="btn btn-primary mb-3">Agregar Cliente</button>
+          <table class="table table-striped" id="clientsTable">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <!-- Modal Clientes (puede ser bootstrap o no según tu CSS/JS) -->
+        <div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="clientModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <form id="clientForm" class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="clientModalLabel">Agregar Cliente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label for="firstName" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="firstName" required>
+                </div>
+                <div class="mb-3">
+                  <label for="lastName" class="form-label">Apellido</label>
+                  <input type="text" class="form-control" id="lastName" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Correo</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="rol" class="form-label">Rol</label>
+                  <select id="rol" class="form-select" required>
+                    <option value="CLIENTE">Cliente</option>
+                    <option value="VENDEDOR">Vendedor</option>
+                    <option value="ADMIN">Administrador</option>
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </section>
 
-      <section id="profile" class="dashboard-section">
-        <h2>👤 Mi perfil</h2>
-        <p>Gestión del perfil de usuario.</p>
-      </section>
-    </main>
+<!-- 
+<section id="profile" class="dashboard-section" style="display: none;">
+  <h2>👤 Mi Perfil</h2>
+  <div class="section-actions" style="margin-bottom: 1em;">
+    <button id="editProfileBtn" class="btn btn-primary">Editar Perfil</button>
+    <button id="deleteAccountBtn" class="btn btn-danger">Eliminar Cuenta</button>
   </div>
 
+  <table class="styled-table">
+    <tbody>
+      <tr>
+        <th>Nombre</th>
+        <td id="profileFirstNameDisplay"></td>
+      </tr>
+      <tr>
+        <th>Apellido</th>
+        <td id="profileLastNameDisplay"></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td id="profileEmailDisplay"></td>
+      </tr>
+      <tr>
+        <th>Rol</th>
+        <td id="profileRoleDisplay"></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div id="profileModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Editar Perfil</h3>
+      <form id="profileForm">
+        <label for="profileFirstName">Nombre</label>
+        <input type="text" id="profileFirstName" name="firstName" required>
+
+        <label for="profileLastName">Apellido</label>
+        <input type="text" id="profileLastName" name="lastName" required>
+
+        <label for="profileEmail">Email</label>
+        <input type="email" id="profileEmail" name="email" required>
+
+        <label for="profilePassword">Contraseña <small>(Dejar vacío para no cambiar)</small></label>
+        <input type="password" id="profilePassword" name="password" placeholder="Nueva contraseña">
+
+        <label for="profileRole">Rol</label>
+        <select id="profileRole" name="role" required>
+          <option value="ADMIN">Administrador</option>
+          <option value="VENDEDOR">Vendedor</option>
+          <option value="CLIENTE">Cliente</option>
+        </select>
+
+        <div class="form-actions" style="margin-top: 1em;">
+          <button type="submit" class="submit-btn">Guardar Cambios</button>
+          <button type="button" id="cancelProfileBtn" class="cancel-btn">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="confirmDeleteModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Confirmar eliminación de cuenta</h3>
+      <p>¿Estás seguro que deseas eliminar tu cuenta? Esta acción es irreversible.</p>
+      <div class="form-actions" style="margin-top: 1em;">
+        <button id="confirmDeleteBtn" class="btn btn-danger">Eliminar Cuenta</button>
+        <button id="cancelDeleteBtn" class="btn btn-secondary">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</section>
+ -->
+  <!-- Scripts: dashboard primero, luego módulos por sección -->
   <script src="./js/dashboard.js"></script>
   <script src="./js/services.js"></script>
   <script src="./js/accounts.js"></script>
+  <script src="./js/clients.js"></script>
   <script src="./js/profile.js"></script>
-
-
 </body>
 </html>

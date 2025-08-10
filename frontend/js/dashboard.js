@@ -4,24 +4,21 @@ document.addEventListener("DOMContentLoaded", async () => {
   const sections = document.querySelectorAll(".dashboard-section");
 
   const showSection = (id) => {
-    sections.forEach(section => {
-      section.classList.remove("active");
-    });
+    sections.forEach(section => section.classList.remove("active"));
     document.getElementById(id).classList.add("active");
   };
 
   try {
-    const res = await fetch("http://localhost:3000/api/profile", {
-      credentials: "include"
-    });
+    const res = await fetch("http://localhost:3000/api/profile", { credentials: "include" });
     const user = await res.json();
+
     const fullName = `${user.firstName} ${user.lastName || ""}`.trim();
     const role = user.rol;
 
-    window.getProfile = async () => user;
-
     userInfo.textContent = `${fullName} (${role})`;
+    localStorage.setItem("userRole", role);
 
+    // Control de visibilidad por rol
     if (role === "CLIENTE") {
       document.querySelectorAll(".admin-only, .seller-only").forEach(el => el.style.display = "none");
     } else if (role === "VENDEDOR") {
@@ -32,12 +29,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
 
+    // Navegación
     showSection("home");
 
     sidebarMenu.querySelectorAll("li").forEach(li => {
-      li.addEventListener("click", () => {  
+      li.addEventListener("click", () => {
         const sectionId = li.getAttribute("data-section");
-        showSection(sectionId);
+        if (sectionId) {
+          showSection(sectionId);
+
+          if (sectionId === "profile") {
+            if (window.loadProfileSection) window.loadProfileSection();
+          } else if (sectionId === "clients") {
+            if (window.loadClientsSection) window.loadClientsSection();
+          }
+          // Aquí puedes agregar más secciones
+        }
       });
     });
 
